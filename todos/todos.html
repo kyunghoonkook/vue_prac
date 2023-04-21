@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todos</title>
+    <link rel="stylesheet" href="css/todo.css">
+
+</head>
+
+<body>
+    <section class="todoapp">
+        <header>
+            <h1>TODAY TODOS!</h1>
+            <input type="text" class="newTodo" v-model="newTodo" v-on:keyup:enter="addTodo">
+        </header>
+        <section id="container">
+            <ul class="todoList">
+                <li class="todo" v-for="todo in filterTodos" v-bind:class="completed">
+                    <div>
+                        <input type="checkbox" class="toggleCheck" >
+                        <label>{{todo.title}}</label>
+                        <button class="delete"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <span class="todoCount"></span>
+            <button>clear completed</button>
+        </footer>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/todo.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44-eventBus</title>
+</head>
+<body>
+    <h1>eventBus</h1>
+    <p>형제들 간의 데이터를 전달할때 사용한다.</p>
+    <p>1. 이벤트 버스선언</p>
+    <p>2. 이벤트를 보낼때 버스 $emit()</p>
+    <p>3. 이벤트를 받을때 버스 $on()</p>
+    <div id="send-app">
+        <input type="text" v-model="text">
+        <button v-on:click="sendMsg">send</button>
+        <div></div>
+    </div>
+    <div id="receive-app">
+        <div>받기 : {{text1}}</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var EventBus = new Vue();
+
+        var a=new Vue({
+            el:"#send-app",
+            data:{
+                text:"",
+                sendText:""
+            },
+            created(){
+
+            },
+            methods:{
+                sendMsg:function(){
+                    EventBus.$emit("send",this.text)
+                }
+            }
+        })
+
+        var b=new Vue({
+            el:"#receive-app",
+            data:{
+                text1:""
+            },
+            created(){
+                EventBus.$on("send",this.onReceive)
+            },
+            methods:{
+                onReceive(text){
+                    this.text1=text
+                }
+            }
+        })
+    </script>
+</body>
+</html>

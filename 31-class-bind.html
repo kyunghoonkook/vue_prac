@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31-class-bind</title>
+    <style>
+        #app{
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 30px;
+        }
+        .ready{
+            background: #ccc;
+            color: #222;
+        }
+        .active{
+            background: coral;
+            color: white;
+            border-radius: 30%;
+        }
+        .done{
+            background: cornflowerblue;
+            color: cornsilk;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-bind:class="state" v-on:click="change">
+        {{text}}
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                text:"ready",
+                state:"ready"
+            },
+            methods:{
+                change:function(){
+                    if(this.state == "ready"){
+                        this.state = "active";
+                        this.text = this.state;
+                    }
+                    else if(this.state == "active"){
+                        this.state = "done";
+                        this.text = this.state;
+                    }
+                    else{
+                        this.state = "ready";
+                        this.text = this.state;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

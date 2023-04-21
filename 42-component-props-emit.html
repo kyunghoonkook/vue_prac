@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42-component-props-emit</title>
+</head>
+<body>
+    <h1>component-props-emit</h1>
+    <div id="app">
+        <local-com v-bind:message="msg" v-bind:random="rnd" v-on:childclick="show"></local-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var mycom = {
+            template:"<div><h2>지역컴포넌트{{message}}</h2><button v-on:click='childnum'>number</button><h3>{{random}}</h3></div>",
+            props:["message","random"],
+            data:function(){
+                return{
+                    num:Math.floor(Math.random()*100+1)
+                }
+            },
+            methods:{
+                childnum:function(){
+                    this.$emit("childclick",this.num)
+                }
+            }
+        }
+        new Vue({
+            el:"#app",
+            data:{
+                msg:"메세지",
+                rnd:0
+            },
+            components:{
+                "local-com":mycom
+            },
+            methods:{
+                show:function(val){
+                    this.rnd=val;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

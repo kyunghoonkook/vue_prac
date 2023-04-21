@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48-router-named-view</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        #header {
+            background: #ccc;
+        }
+
+        #footer {
+            background: #000;
+        }
+        p,address{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>뷰 라우터 named</h1>
+    <div id="app">
+        <router-view name="aheader"></router-view>
+        <router-view></router-view>
+        <router-view name="afooter"></router-view>
+    </div>
+    <script>
+        // 1. 컴포넌트 선언
+        var appHeader = {
+            template: `
+            <div id="header">
+                <h1>logo</h1>
+            </div>`
+        }
+        var appBody = {
+            template: `
+            <div>
+                <h3>본문영역</h3>
+                <p>메인 페이지입니다</p>
+            </div>
+            `
+        }
+
+        var appFooter = {
+            template: `
+            <div id="footer">
+                <p>하단로고</p>
+                <address>서울시 영등포구 양평동</address>
+            </div>
+            `
+        }
+        // 2. 뷰라우터 정의
+
+        var myRouter = new VueRouter({
+            routes: [{
+                path: "/",
+                components: {
+                    default: appBody,
+                    aheader: appHeader,
+                    afooter: appFooter
+                }
+            }]
+        })
+        // 3. 뷰인스턴스에 뷰라우터 등록
+        new Vue({
+            el: "#app",
+            router: myRouter
+        })
+    </script>
+</body>
+
+</html>

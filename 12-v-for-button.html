@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-v-for-button</title>
+    <style>
+        button{
+            background:white;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+        button.active{
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button v-for="p in pages" v-bind:class="{active:page===p}" v-on:click="page=p">{{p}}</button>
+        <br>
+        <div v-for="p in pages" v-if="page===p">
+            <p>{{p}} - contents</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                page:"page1",
+                pages:["page1","page2","page3","page4"]
+            }
+        })
+    </script>
+</body>
+</html>

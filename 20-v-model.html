@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>teleComs의 객체만큼 option 만들기 내용은 text, value값은 value로 적용</p>
+    <div id="app">
+        <select name="" id="" v-model="selTel">
+            <option v-for="tel in teleComs" v-bind:value="tel.value">{{tel.text}}</option>
+        </select>
+        <p>선택한 통신사는 : {{selTel}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                selTel:"",
+                teleComs:[
+                    {text:"one", value:"SK"},
+                    {text:"two", value:"KT"},
+                    {text:"three", value:"LG"}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

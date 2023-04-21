@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>32-computed-methods</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>count:{{count}}, mCount:{{mCount}}</p>
+        <p>computed : {{comCount}}</p>
+        <p>methods: {{meCount()}}</p>
+        <button v-on:click="count++">count++</button>
+        <button v-on:click="mCount++">mCount++</button>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+                mCount: 0
+            },
+            computed: {
+                comCount: function () {
+                    console.log("computed!");
+                    return this.count;
+                }
+            },
+            methods: {
+                meCount: function () {
+                    console.log("methods~");
+                    return this.mCount;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

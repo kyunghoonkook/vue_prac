@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45-eventBus</title>
+</head>
+<body>
+    <div id="app">
+        <h1>형제간의 통신</h1>
+        <my-com></my-com>
+        <your-com></your-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var eventBus = new Vue();
+
+        var myComp = {
+            template:"<div>mycom <button v-on:click='send'>내보내기</button></div>",
+            data(){
+                return{
+                    msg:"mycom의 내용입니다~"
+                }
+            },
+            methods:{
+                send:function(){
+                    eventBus.$emit("onsend","mycomp에서 온 자료 : "+this.msg)
+                }
+            }
+        }
+        var yourComp = {
+            template:"<div>yourcom {{msg2}}</div>",
+            data:function(){
+                return{
+                    msg2:"yourcom 내용입니다~"
+                }
+            },
+            // created:function(){
+            //     eventBus.$on("onsend",this.onReceive)
+            // },
+            // methods:{
+            //     onReceive(text){
+            //         this.msg2 = text
+            //     }
+            // }
+            
+            created:function(){
+                var vm=this;
+                eventBus.$on("onsend",function(text){
+                    vm.msg2=text
+                })
+            }
+        }
+
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                "my-com":myComp,
+                "your-com":yourComp
+            }
+        })
+    </script>
+</body>
+</html>

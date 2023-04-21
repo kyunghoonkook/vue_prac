@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41-component-emit</title>
+</head>
+<body>
+    <h1>component emit</h1>
+    <p>emit 자식이 부모한테 보내는 신호, 부모 데이터 변경</p>
+    <div id="app">
+        <h2>{{total}}</h2>
+        <btn-counter v-on:addtotal="add"></btn-counter>
+        <btn-counter v-on:addtotal="add"></btn-counter>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.component("btn-counter",{
+            template:"<button v-on:click='addCounter'>{{counter}}</button>",
+            data:function(){
+                return{
+                    counter:0
+                }
+            },
+            methods:{
+                addCounter:function(){
+                    this.counter++;
+                    this.$emit("addtotal")
+                }
+            }
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                total:0
+            },
+            methods:{
+                add:function(){
+                    this.total++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

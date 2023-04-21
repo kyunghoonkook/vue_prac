@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>형제간 통신</h1>
+    <div id="app">
+        <my-com1></my-com1>
+        <my-com2></my-com2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var com1={
+            template:"<div>첫번째 : {{num1}}</div>",
+            data:function(){
+                return{
+                    num1:100
+                }
+            }
+        }
+
+        var com2={
+            template:"<div>두번째 자료는 첫번째 : {{num2}} </div>",
+            data:function(){
+                return{
+                    num2:com1.data.num1
+                }
+            }
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                "my-com1":com1,
+                "my-com2":com2
+            }
+        })
+    </script>
+</body>
+</html>

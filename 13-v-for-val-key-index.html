@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-v-for</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>nums : index, val</h1>
+        <ul>
+            <li v-for="(val,index) in nums">{{index}} ==> {{val}}</li>
+        </ul>
+        <h1>regions : key, val, index</h1>
+        <ul>
+            <li v-for="(val,key,index) in regions">{{key}} ==> {{val}} / {{index}}</li>
+        </ul>
+        <h1>anis : </h1>
+        <ul>
+            <li v-for="(val ,index) in anis">{{index}} => {{val}} {{val.name}} 
+                <img v-bind:src="val.img" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nums: [10, 20, 30],
+                anis: [{
+                        no: 1,
+                        name: "쿵푸1",
+                        img: "images/_01.jpg"
+                    },
+                    {
+                        no: 2,
+                        name: "쿵푸2",
+                        img: "images/_02.jpg"
+                    },
+                    {
+                        no: 3,
+                        name: "쿵푸3",
+                        img: "images/_03.jpg"
+                    },
+                    {
+                        no: 4,
+                        name: "쿵푸4",
+                        img: "images/_04.jpg"
+                    }
+                ],
+                regions: {
+                    "A": "Asia",
+                    "B": "American",
+                    "C": "Europe",
+                    "D": "Africa"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>47-router</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <style>
+        div {
+            text-align: center;
+        }
+
+        .bg1 {
+            background-color: skyblue;
+        }
+
+        .bg2 {
+            background-color: pink;
+        }
+
+        .bg3 {
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>중첩 뷰 라우터</h1>
+        <div>
+            <router-link to="/mainpage">Main</router-link>
+            <router-link to="/loginpage">Login</router-link>
+            <router-link to="/userpage">User</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <script>
+        // 1. 컴포넌트 선언
+        var Mainpage = {
+            template: "<div class='bg1'><h1>Main page</h1></div>"
+        }
+        var Loginpage = {
+            template: "<div class='bg2'><h1>Login page</h1></div>"
+        }
+        var Userpage = {
+            template : `
+            <div class='bg3'>
+                <h1>User page</h1>
+                <router-link to="/profile">User profile</router-link>
+                <router-link to="/post">User post</router-link>
+                <hr>
+                <router-view></router-view>
+            </div>
+            `
+        };
+        var Profile = {
+            template: `
+            <div>
+                <h2>User profile</h2>
+                <p>profile page</p>
+            </div>`
+        }
+        var Post = {
+            template: `
+            <div>
+                <h2>User post</h2>
+                <p>post page</p>
+            </div>`
+        }
+
+        // 2. url 컴포넌트 등록
+        var routes = [{
+                path: "/mainpage",
+                component: Mainpage
+            },
+            {
+                path: "/loginpage",
+                component: Loginpage
+            },
+            {
+                path: "/userpage",
+                component: Userpage,
+                children:[
+                    {path:"/profile",component:Profile},
+                    {path:"/post",component:Post}
+                ]
+            }
+        ]
+        // 3. 뷰 라우터 정의
+        var myRouter = new VueRouter({
+            routes
+        })
+
+        // 4. 뷰 인스턴스에 뷰라우터 등록
+        // new Vue({
+        //     el: "#app",
+        //     router: myRouter
+        // })
+        new Vue({
+            router:myRouter
+        }).$mount("#app")
+    </script>
+</body>
+
+</html>

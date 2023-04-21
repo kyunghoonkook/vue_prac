@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-style-bind</title>
+</head>
+<body>
+    <h1>style bind</h1>
+    <div id="app">
+        <h2>인라인 스타일 바인딩</h2>
+        <p v-bind:style="{fontSize:'30px'}">style 속성을 이용한 스타일 style = "속성:값"</p>
+
+        <h2>배열 스타일 바인딩</h2>
+        <p v-bind:style="[baseStyles,addStyles]">style = "[변수로 선언된 스타일명, 변수로 선언된 스타일]"</p>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                baseStyles:{
+                    fontWeight:"bold",
+                    color:"red"
+                },
+                addStyles:{
+                    textDecoration:"underline",
+                    backgroundColor:"#ccc"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

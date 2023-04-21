@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33-watch</title>
+</head>
+<body>
+    <div id="app">
+        <h1>watch</h1>
+        <p>watch 데이터의 변화를 체크하여 변화가 생기면
+            실행되는 함수로 이전값과 현재값을 둘다 매개변수로 가진다.
+        </p>
+        <h2>{{count}}</h2>
+        <p>{{msg}}</p>
+        <!-- <button v-on:click="count--">count--</button> -->
+        <button @click="count--">count--</button>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                count:10,
+                msg:"변경전입니다"
+            },
+            watch:{
+                count:function(newVal,oldVal){
+                    this.msg=`${oldVal}에서 ${newVal}로 변경되었습니다`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

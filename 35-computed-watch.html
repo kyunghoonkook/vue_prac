@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-computed-watch</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>count : {{count}}</h1>
+        <button @click="count--">count --</button>
+        <span v-if="count===2">{{comCount}}</span>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 3
+            },
+            computed: {
+                comCount: function () {
+                    if (this.count === 2) {
+                        alert("값이 2입니다")
+                    }
+                }
+            },
+            watch: {
+                count: function (newVal) {
+                    if (newVal === 0) {
+                        alert("00000");
+                        this.count = 3
+                    }
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

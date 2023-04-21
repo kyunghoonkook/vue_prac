@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36-전역컴포넌트</title>
+</head>
+
+<body>
+    <h1>전역 component</h1>
+    <p>여려개의 app영역에서 사용할 수 있는 component를 말한다.</p>
+    <div id="app">
+        <h2>app</h2>
+        <sample-component></sample-component>
+    </div>
+    <div id="app2">
+        <h2>app2</h2>
+        <sample-component></sample-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+    Vue.component("sample-component",{
+        template:"<p>component</p>"
+    })
+        var app = new Vue({
+            el:"#app"
+        })
+        var app2 = new Vue({
+            el:"#app2"
+        })
+    </script>
+</body>
+
+</html>

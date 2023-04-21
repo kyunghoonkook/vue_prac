@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-v-html</title>
+</head>
+<body>
+    <h1>지시문</h1>
+    <p>html안에 들어가는 속성 역할을 해주는 것을 뜻하며, vue 인스턴스에서 선언한 변수 내용을 할당할 때 사용한다.</p>
+    <div id="app">
+        <span v-text="msg2"></span>
+        <span v-html="msg"></span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                msg:"<strong>안녕</strong>",
+                msg2:"vue"
+            }
+        })
+    </script>
+</body>
+</html>

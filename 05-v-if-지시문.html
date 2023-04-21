@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-v-if-지시문</title>
+</head>
+<body>
+    <h1>v-if</h1>
+    <p>v-if="조건문"</p>
+    <div id="app">
+        <span v-if="value > 10">값이 10보다 크다</span>
+        <span v-else>값이 10보다 작음</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                value:5
+            }
+        })
+    </script>
+</body>
+</html>

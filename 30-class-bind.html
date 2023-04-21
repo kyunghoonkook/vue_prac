@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-class-bind</title>
+    <style>
+        .good{
+            background:pink;
+            font-size:30px;
+            font-weight: bold;
+        }
+        .bad{
+            background-color: red;
+            color:white;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>class bind</h1>
+    <div id="app">
+        <h2>클래스 바인딩</h2>
+        <p>클래스 바인드 하기</p>
+
+        <h2>클래스 조건 바인딩</h2>
+        <p v-bind:class="{good:visible,bad:!visible}">조건에 따라 클래스 바인드 visible true이면 good클래스가 적용되도록</p>
+
+        <h2>클래스 배열 바인딩</h2>
+        <p v-bind:class="[customClass.bbad]">클래스 변수로 바인드하기 customClass .bbad</p>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                visible:true,
+                customClass:{
+                    ggood:"good",
+                    bbad:"bad"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

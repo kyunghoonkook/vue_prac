@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>34-computed-watch</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>computed, watch</h1>
+        <h2>count : {{count}}</h2>
+        <h2>computed : {{comCount}}</h2>
+        <h2>watch : {{count}}</h2>
+        <button @click="count--">count --</button>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 3,
+                watchedCount: 10
+            },
+            computed: {
+                comCount: function () {
+                    return this.count * 3
+                }
+            },
+            watch: {
+                mcount: function (newVal) {
+                    this.watchedCount = newVal * 3
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

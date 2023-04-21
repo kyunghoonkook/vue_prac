@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18-v-model</title>
+</head>
+<body>
+    <h1>수강신청하기</h1>
+    <div id="app">
+        <div>
+            <p>이름을 입력하세요</p>
+            <input type="text" v-model="uName">
+        </div>
+        <p>수강 신청활 과목을 체크하세요</p>
+        <label><input type="checkbox" value= "포토샵/일러스트"v-model="subjects">포토샵/일러스트</label>
+        <label><input type="checkbox" value= "HTML/css"v-model="subjects">HTML/css</label>
+        <label><input type="checkbox" value= "java/jQuery"v-model="subjects">java/jQuery</label>
+        <label><input type="checkbox" value= "Vue/React"v-model="subjects">Vue/React</label>
+        <hr>
+        <div> {{uName}}님이 신청한 과목은 : {{subjects}}</div>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            new Vue ({
+                el:"#app",
+                data:{
+                    uName:"",
+                    subjects:[]
+                }
+            })
+        </script>
+    </div>
+</body>
+</html>

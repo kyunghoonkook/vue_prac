@@ -1,0 +1,10 @@
+{
+    "name":"홍길동",
+    "age":18,
+    "gender":"man",
+    "hobby":["무술","활쏘기"],
+    "family":{
+        "mother":"아하",
+        "father":"우후"
+    }
+}

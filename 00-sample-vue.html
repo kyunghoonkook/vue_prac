@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00-sample-vue</title>
+</head>
+<body>
+    <!-- vue 인스턴스에서 생성된 내용을 보여줄 마크업요소 -->
+    <div id="app">
+        <!-- 콧수염 괄호 {{변수명}} -->
+        {{msg}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var myApp = newVue({
+            el:"#app",
+            data:{
+                msg:"하잉"
+            }
+        })
+    </script>
+</body>
+</html>

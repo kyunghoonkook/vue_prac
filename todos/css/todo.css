@@ -1,0 +1,74 @@
+body,
+h1,
+h2,
+p,
+ul,
+li,
+* {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: #ddd;
+}
+
+.todoapp {
+    background: white;
+    margin: 100px auto;
+    width: 600px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 50px;
+    color: tomato;
+}
+
+header .newTodo {
+    font-size: 24px;
+    padding: 15px;
+    border: 1px solid #999;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#container {}
+.todoList{}
+.todoList>li{
+    font-size: 24px;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    position: relative;
+}
+.todoList>li .toggleCheck{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+}
+.todoList>li .toggleCheck+label{
+    background-image: url(../images/);
+    background-repeat: no-repeat;
+    padding-left: 60px;
+}
+.todoList>li .toggleCheck:checked_label{
+    background-image: url(../images/check.png);
+}
+
+.todoList>li.completed label{
+    color: #ddd;
+}
+.todoList>li .delete{
+    width: 24px;
+    height: 24px;
+    background: url(../images/close.png);
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}

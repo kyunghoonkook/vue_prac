@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-v-for</title>
+</head>
+<body>
+    <div id="app">
+        <p>버튼을 클릭하면 배열의 요소값 변경하기</p>
+        <button v-on:click="change">배열 요소 변경</button>
+        <h2 v-for="val in arr1">{{val}}</h2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr1:[1,2,3]
+            },
+            methods:{
+                change:function(){
+                    // this.arr1[0] = 100
+                    // this.$set(this.arr1,0,300)
+                    // this.arr1.splice(0,1,700)
+
+                    var newArr = [...this.arr1];
+                    newArr[0] = 1000;
+                    this.arr1= newArr
+                }
+            }
+        })
+    </script>
+</body>
+</html>

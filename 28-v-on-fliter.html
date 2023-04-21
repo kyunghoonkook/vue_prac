@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28-v-on-filter</title>
+    <style>
+        .banner{
+            width:1200px;
+            margin:0 auto;
+        }
+        .banner>li{
+            list-style:none;
+            float:left;
+            margin:10px;
+        }        
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="eventTitle" v-on:keyup="searchKind(eventTitle)">
+        <p>{{eventTitle}}</p>
+        <ul class="banner">
+            <li v-for="menu in kinds">
+                <img v-bind:src="menu.img" alt="">
+                <h3>{{menu.title}}</h3>
+                <p>{{menu.kind}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                eventTitle:"menu",
+                eventKinds:[
+                    {img:"images/event01.jpg",title:"30% off",kind:"set"},
+                    {img:"images/event02.jpg",title:"dunkin tonight",kind:"set"},
+                    {img:"images/event03.jpg",title:"햄모닝",kind:"set"},
+                    {img:"images/event04.jpg",title:"콤보 음료 free",kind:"hambeger"},
+                    {img:"images/event05.jpg",title:"weekely 30% off",kind:"coffee"},
+                    {img:"images/event06.jpg",title:"던킨치킨 선물",kind:"donut"},
+                    {img:"images/event07.jpg",title:"카카오 선물하기",kind:"donut"},
+                    {img:"images/event08.jpg",title:"매주 금요일 할인",kind:"dontu"},
+                    {img:"images/event09.jpg",title:"배달주문시 1+1",kind:"ice"},
+                    {img:"images/event10.jpg",title:"카카오 선물하기",kind:"donut"},
+                    {img:"images/event11.jpg",title:"복날치킨 버거",kind:"hambeger"},
+                    {img:"images/event12.jpg",title:"50% off",kind:"donut"},
+                    {img:"images/event13.jpg",title:"복날 후식열전 50%",kind:"ice"},
+                    {img:"images/event14.jpg",title:"콤보음료 무료",kind:"hotdog"}
+                ],
+                kinds:[]
+            },
+            created:function(){
+                this.kinds= this.eventKinds.slice();
+            },
+            methods:{
+                searchKind:function(skind){
+                    this.kinds = this.eventKinds.filter(function(m){
+                       if(m.kind.indexOf(skind) != -1){
+                           return true;
+                       }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

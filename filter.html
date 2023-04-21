@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+
+<body>
+    <script>
+        var fruits = ["apple", "banana", "mango", "orange", "grapes"]
+
+        // var newF = fruits.filter(function (a) {
+        //     if (a.length > 5) {
+        //         return true
+        //     }
+        // })
+
+        // var newF = fruits.filter((aa) => {
+        //     return aa.length>5
+        // })
+        
+        var newF = fruits.filter(aa => aa.length>5)
+
+        console.log(newF)
+    </script>
+</body>
+
+</html>

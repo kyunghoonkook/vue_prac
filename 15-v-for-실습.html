@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-v-for-실습</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>event</h1>
+        <ul>
+            <li v-for="evt in events">
+                <img v-bind:src="evt.img" alt="">
+                <h3>{{evt.title}}</h3>
+                <p>{{evt.text}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                events: [{
+                        title: "해피마켓",
+                        text: "7월 해피마켓 50%로 OFF",
+                        img: "images/event01.jpg"
+                    },
+                    {
+                        title: "중복이닭",
+                        text: "복날 치킨버거 세트 구매시 50% OFF",
+                        img: "images/event02.jpg"
+                    },
+                    {
+                        title: "복날 후식 열전",
+                        text: "50%로 OFF",
+                        img: "images/event03.jpg"
+                    },
+                    {
+                        title: "배달 주문시 쿨라떼",
+                        text: "올 여름 배달 주문시 쿨라떼 1+1",
+                        img: "images/event04.jpg"
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

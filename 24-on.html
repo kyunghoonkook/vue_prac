@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-v-on</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="hi('경훈')">인사</button>
+        <button @click="hi('경')">안녕</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        // 인사 버튼 클릭 인사
+        // 안녕 버튼 클릭 안녕
+        new Vue({
+            el:"#app",
+            methods:{
+                hi:function(uName){
+                    console.log(`${uName} 안녕~`)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

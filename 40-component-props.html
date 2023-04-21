@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40-component-props</title>
+</head>
+<body>
+    <h1>component props</h1>
+    <p>부모요소의 데이터를 자식 component전달할때 사용한다.</p>
+    <div id="app">
+        <ul>
+            <my-todo v-for="n in todos" v-bind:mytodo="n"></my-todo>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        Vue.component("my-todo",{
+            props:["mytodo"],
+            template:"<li>{{mytodo.text}}</li>"
+        })
+        new Vue({
+            el:"#app",
+            data:{
+                todos:[
+                    {id:0,text:"에어컨 설치"},
+                    {id:1,text:"청소"},
+                    {id:2,text:"시험지 채점"},
+                    {id:3,text:"요리"}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
